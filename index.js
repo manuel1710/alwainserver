@@ -54,9 +54,9 @@ app.delete("/file/upload", async (req, res) => {
     let name = req.query.name;
     let fileToDel = req.query.filename;
     let uploadDate = req.query.uploadDate;
-    // const imagePath = path.join(__dirname, "uploads", fileToDel);
+    const imagePath = path.join(__dirname, "uploads", fileToDel);
     // const imagePath = fs.existsSync({"originalname":fileToDel});
-    // fs.unlinkSync(imagePath);
+    fs.unlinkSync(imagePath);
     await imgModel.deleteOne({ name: name, uploadDate: uploadDate });
     res.send("Success");
   }
